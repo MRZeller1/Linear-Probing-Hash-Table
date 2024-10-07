@@ -1,9 +1,4 @@
-/*
- * MRZ22001
- * Michael Zeller
- * Project 3 LinearProbingHashTable
- * CS 3345.001
-*/
+
 import java.util.Set;
 import java.util.Scanner;
 import java.util.Collection;
@@ -16,7 +11,7 @@ public class LinearProbingHashTable<K, V>{
 	private int capacity;
 	private Set set;
 	private boolean rehashing = false;
-	//Class for each node, key value pair
+	//Class for each node, key-value pair
 	private static class Entry<K, V>{
 		K key;
 		V value;
@@ -44,7 +39,7 @@ public class LinearProbingHashTable<K, V>{
 		//index generated based on key
 		int index = key.hashCode() % capacity;
 		
-		//Find the open spot in the hash table using linear probing, if neccisary
+		//Find the open spot in the hash table using linear probing, if necessary
 		while(table[index] != null && !table[index].deleted) {
 			//Duplicate case
 			if(table[index].value == value) return false;
@@ -70,7 +65,7 @@ public class LinearProbingHashTable<K, V>{
 		return true;
 	}
 	
-	//Delete function that markes the value for the key passed as deleted
+	//Delete function that makes the value for the key passed as deleted
 	public boolean delete(K key) {
 		int index = 0;
 		boolean found = false;
@@ -102,7 +97,7 @@ public class LinearProbingHashTable<K, V>{
 		}
 		return (HashSet<K>) set;
 	}
-	//A print key set method that automatically calls the key set method to constuct the key set and than prints the values
+	//A print key set method that automatically calls the key set method to construct the key set and then prints the values
 	public void printKeySet() {
 		this.keySet();
 		if(set == null) return;
@@ -114,7 +109,7 @@ public class LinearProbingHashTable<K, V>{
 		System.out.println();
 	}
 	
-	//To string method that uses the StringBUilder class to output the hash table as a String
+	//To string method that uses the StringBuilder class to output the hash table as a String
 	public String toString() {
 		StringBuilder str = new StringBuilder();
 		for(int i = 0; i < capacity; i ++) {
@@ -163,7 +158,7 @@ public class LinearProbingHashTable<K, V>{
 		rehashing = false;
 		
 	}
-	//Helper for finding a new capcity size that is a prime number that is at least double the size of the current capcacity
+	//Helper for finding a new capacity size that is a prime number that is at least double the size of the current capacity
 	private static int newCapacity(int capacity) {
 		int newCapacity = capacity * 2;
 		while(!isPrime(newCapacity)) {
