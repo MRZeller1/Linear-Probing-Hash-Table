@@ -197,26 +197,33 @@ public class LinearProbingHashTable<K, V>{
 			if(in.length > 2) value = in[2];
 			
 			switch(method) {
+			// Inserts a key into a bucket
 			case 'P':
 				table.put(key, value);
 				break;
+			// Gets a Value given a key
 			case 'G':
 				System.out.println(table.get(key));
 				break;
+			// Deletes the key
 			case 'D':
 				table.delete(key);
 				break;
+			// Prints the set of keys
 			case 'K':
 				table.printKeySet();
 				break;
+			// Automatically rehashes the table
 			case 'R':
 				System.out.print("Size " + table.capacity);
 				table.rehash();
 				System.out.println(" " + table.capacity);
 				break;
+			// Prints the table
 			case 'S':
 				table.print();
 				break;
+			// Quits the loop
 			case 'Q':
 				quit = true;
 				break;
